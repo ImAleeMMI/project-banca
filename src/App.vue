@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <router-link to="/">Page Not found</router-link>
-  </div>
+    <router-view></router-view>
 </template>
 
 <script>
