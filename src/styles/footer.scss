@@ -1,0 +1,30 @@
+footer {
+    background: #5a6e75;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    display: block;
+  }
+  
+  footer .container {
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 100%;
+  }
+  
+  footer .logo {
+    height: 30px;
+  }
+  
