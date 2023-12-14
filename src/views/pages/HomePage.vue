@@ -1,7 +1,8 @@
 <template>
   <the-header></the-header>
-  <api-call />
-  <the-main></the-main>
+  <the-main>
+    <api-call />
+  </the-main>
   <the-footer></the-footer>
 </template>
 
@@ -18,7 +19,7 @@ export default {
     ApiCall,
     TheHeader,
     TheFooter,
-    TheMain
+    TheMain,
   },
 };
 </script>

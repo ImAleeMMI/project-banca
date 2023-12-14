@@ -13,3 +13,91 @@ main .container {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
+.pricing-factoring-hero-info label {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.pricing-factoring-hero-info:first-child {
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-color: #e8e8e8;
+}
+
+.title {
+  font-family: "Montserrat";
+  font-size: 35px;
+  line-height: 42.67px;
+  font-weight: 500;
+}
+
+.badge-id {
+  margin-left: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: rgb(90 110 117);
+  padding: 6px 18px;
+  border-radius: 73px;
+}
+
+.pricing-factoring-hero-info:last-child {
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.info-data {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  div {
+    margin-right: 2rem;
+  }
+  button {
+    margin-left: 10.62rem;
+  }
+}
+
+.badge-tool {
+  background: #97d1af;
+  box-shadow: 0 2px 5px #A4A4A4;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  min-width: 200px;
+}
+
+.pricing-factoring-hero-info-list {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.credit-line {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px #E2E2E2;
+  background-color: rgb(255 255 255);
+  margin-bottom: 2.5rem;
+  min-height: 42px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-right: max(calc((100% - 768px)/2),32px);
+  padding-left: max(calc((100% - 768px)/2),32px);
+  .title-credit-line{
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing:2px
+  }
+}
