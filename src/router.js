@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import HomePage from './views/pages/HomePage.vue';
-import NotFound from './views/NotFound.vue';
-import ErrorPage from './views/ErrorPage.vue';
+import NotFound from './views/pages/error/NotFound.vue';
+import ErrorPage from './views/pages/error/ErrorPage.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,7 +13,7 @@ const router = createRouter({
         name: 'home'
     },
     {
-        path: '/:404(.*)',
+        path: '/:notFound(.*)',
         component: NotFound,
         name: 'notFound'
     },
