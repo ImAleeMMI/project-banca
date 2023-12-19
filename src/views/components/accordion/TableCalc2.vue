@@ -10,32 +10,28 @@
         <q-input rounded outlined v-model="gracePeriod" type="number" />
       </div>
     </q-card-section>
-    <ul class="values-list">
-      <li class="values">
+    <ul >
+      <li class="values values-list">
         <label>Percentuale prezzo target</label>
         <span>{{ creditLine.targetPricePercentage }}%</span>
-        <div class="line-bar"></div>
+      
       </li>
-      <li class="values">
+      <li class="values values-list">
         <label>Valore di acquisto</label>
         <span>{{ creditLine.purchaseReceivableAmount }}€</span>
-        <div class="line-bar"></div>
       </li>
-      <li class="values">
+      <li class="values values-list">
         <label>Recupero spese valutazione debitore</label>
         <q-input rounded outlined v-model="gracePeriod" type="number" />
         <span>€</span>
-        <div class="line-bar"></div>
       </li>
-      <li class="values">
+      <li class="values values-list">
         <label><strong>Totale competenze</strong></label>
-        <span>{{creditLine.bankFee}}€</span>
-        <div class="line-bar"></div>
+        <span>{{ creditLine.bankFee }}€</span>
       </li>
-      <li class="values">
+      <li class="values values-list">
         <label><strong>Rendimento finanziario annuo lordo</strong></label>
         <span>{{ creditLine.grossAnnualFinancialReturn }}%</span>
-        <div class="line-bar"></div>
       </li>
     </ul>
     <div class="q-pa-md">
@@ -49,41 +45,36 @@
       </div>
     </div>
 
-    <ul class="values-list">
-      <li>
-        <span>Numero debitori</span>
+    <ul>
+      <li class="values values-list">
+        <label>Numero debitori</label>
         <span>{{ creditLine.debtorCount }}</span>
-        <div class="line-bar"></div>
       </li>
-      <li>
-        <span>Costo valutazione debitore</span>
+      <li class="values values-list">
+        <label>Costo valutazione debitore</label>
         <q-input rounded outlined v-model="gracePeriod" type="number" />
         <span>{{ creditLine.debtorAssessmentCost }}</span>
-        <div class="line-bar"></div>
       </li>
 
-      <li>
-        <span>Costo rete commerciale</span>
+      <li class="values values-list">
+        <label>Costo rete commerciale</label>
         <span>{{ creditLine.saleCost }}€</span>
-        <div class="line-bar"></div>
       </li>
-      <li>
-        <span>Costo assicurazione coface</span>
+      <li class="values values-list">
+        <label>Costo assicurazione coface</label>
         <q-input rounded outlined v-model="gracePeriod" type="number" />
         <span>{{ creditLine.cofaceCost }}€</span>
-        <div class="line-bar"></div>
       </li>
-      <li>
-        <span>Totale costi acquisition e incasso</span>
+      <li class="values values-list">
+        <label>Totale costi acquisition e incasso</label>
         <span>{{ creditLine.finalAmount }}€</span>
-        <div class="line-bar"></div>
       </li>
     </ul>
-    <div>
-      <q-btn-group>
-        <q-btn color="secondary" glossy label="Ripristina" />
-        <q-btn color="secondary" disable glossy label="Calcola" />
-      </q-btn-group>
+    <div class="footer-table-calc">
+      <div class="q-pa-md q-gutter-sm">
+        <q-btn class="btn-restore" icon="fa-solid fa-rotate-left" label="Ripristina" />
+        <q-btn class="btn-disable" disable label="Calcola" />
+      </div>
     </div>
   </div>
 </template>
@@ -92,11 +83,10 @@
 import { ref } from "vue";
 
 export default {
-
   setup() {
     return {
       value: ref(true),
-      valueDisabled: true
+      valueDisabled: true,
     };
   },
   computed: {

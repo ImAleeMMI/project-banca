@@ -1,6 +1,8 @@
 <template>
   <div class="q-pa-md" style="max-width: 1200px">
-    <q-list bordered class="rounded-borders">
+
+
+      <q-list bordered class="rounded-borders">
       <q-expansion-item
         expand-separator
         label="LINEA DI CREDITO - PRO SOLUTO PARZIALE - PRIVATO"
@@ -38,6 +40,8 @@
         </q-card>
       </q-expansion-item>
     </q-list>
+    
+    
   </div>
 </template>
 

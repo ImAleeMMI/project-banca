@@ -16,7 +16,7 @@
       </div>
       <div>
         <h1 class="title">Grace period</h1>
-        <q-input rounded outlined v-model="gracePeriod" type="number" />
+        <q-input class="input-number" rounded outlined v-model="gracePeriod" type="number" dense="dense" />
       </div>
       <div>
         <h1 class="title">DSO totale</h1>
