@@ -1,0 +1,138 @@
+interface PricingFactoringDTO {
+    /** ignored */ id: string // Identificativo univoco della sessione
+    opportunityId: string // Identificativo univoco dell'oppurtintà
+    ownerName: string // Nome del commerciale
+    ownerEMail: string // Indirizzo e-mail del commerciale
+    assignorName: string // Nome del richiedente
+    assignorVatCode: string // Partita IVA del richiedente
+    assignorFiscalCode: string // Codice fiscale del richiedente
+    assignorMoreScore: string // Punteggio MORE (Multi Objective Rating Evaluation)
+    saeCode: string // Codice SAE
+    annualRevenueAmount: number | null // Fatturato annuo
+    employeeCount: number | null // Numero di dipendenti
+    eadTotalAmount: number // Esposizione totale del gruppo dovuta a mutui deliberati
+    factoringTotalAmount: number // Esposizione totale del gruppo dovuta a factoring deliberati
+    rwPercentage: number // Percentuale RW
+    dsoSkipReason: string | null // DSO skipped note
+    creditLines: {  // Lista linee di credito
+        // Header
+        id: string // Identificativo della linea di credito
+        type: string // Tipologia dei debitori della linea di credito [TotalWithoutRecourse, PartialWithoutRecourse, WithRecourse]
+        debtorType: string // Tipologia dei debitori della linea di credito [public or private]
+        amountSum: number // Importo associato alla linea di credito
+        withRecoursePercentage?: number // Percentuale Anticipo
+        partialWithoutRecoursePercentage?: number // Crediti Acquistabili
+        debtors: { // Lista dei debitori ceduti associati alla linea di credito
+            vatCode?: string // Partita Iva
+            fiscalCode: string// Codice fiscale
+            name: string // Nome
+            countryCode: string // Codice ISO 3166-1 alpha-3 della nazione
+            amount: number // Importo (Turnover)
+            estimatedDso: number // DSO (Days Sales Outstanding) dichiarato, tempo medio di pagamento delle fatture
+            calculatedDso: number | null // DSO (Days Sales Outstanding) calcolato, tempo medio di pagamento delle fatture
+        }[]
+        // Tabella di calcolo
+        // Header 1
+        estimatedDso: number // DSO medio dichiarato associato alla linea di credito
+        calculatedDso: number | null // DSO medio calcolato associato alla linea di credito
+        gracePeriod?: number // Grace Period DSO
+        incomingAccrualDays?: number // GG Valuta incassi
+        withdrawAccrualDays?: number // GG Valuta uscite
+        // Header 2
+        industrialCostPercentage: number // Costo industriale
+        capitalCostPercentage: number // Costo del capitale
+        corPercentage: number // CoR
+        cofPercentage: number // CoF
+        currencyCode: string // Divisa (Codice ISO 4217 della valuta)
+        // Body
+        commissionPercentage: number // Commissione
+        managementFeePercentage?: number // Commissione di gestione
+        interestPercentage?: number // Spread Interessi
+        euriborPercentage?: number // Euribor
+        // List 1
+        targetPricePercentage?: number // Percentuale prezzo target
+        purchaseReceivableAmount?: number // Valore di acquisto credito
+        commissionAmount?: number // Commissioni di factoring
+        incomeInterestAmount?: number // Interessi attivi
+        interestAmount?: number // Interessi attivi per stacco valuta
+        // Switches
+        hasCofaceBill?: boolean // Polizza Coface
+        agentType?: string // Agente / Mediatore
+        // List 2
+        /** ignored */ foreignDebtorCount: number // Numero di debitori stranieri
+        /** ignored */ notForeignDebtorCount: number // Numero di debitori non stranieri
+        debtorCount: number // Numero totale di debitori
+        debtorRecoverCostUnitPrice: number // Prezzo unitario recupero spese valutazione debitori
+        /** ignored */ debtorRecoverCost: number // Recupero spese valutazione debitori
+        debtorAssessmentCostUnitPrice: number // Costo unitario valutazione debitori
+        /** ignored */ debtorAssessmentCost: number // Costo valutazione debitori
+        saleCostWithoutRecoursePercentage?: number // Percentuale costo rete commerciale
+        saleCostWithoutRecourseAmount?: number // Importo costo rete commerciale
+        saleCostWithRecoursePercentage?: number // Percentuale costo rete commerciale
+        saleCostWithRecourseAmount?: number // Importo costo rete commerciale
+        saleCost?: number // Costo rete commerciale
+        cofaceCostPercentage?: number // Percentuale costo assicurazione coface
+        cofaceCost?: number // Costo assicurazione coface
+        bankFee: number // Totale Competenze
+        grossRevenueAmount?: number // Valore incasso lordo
+        grossAnnualFinancialReturn: number // Rendimento finanziario annuo lordo
+        isGrossAnnualFinancialReturnValid: boolean // Controllo su tasso di usura
+        previous: {
+            /** ignored */ id: string
+            /** ignored */ sessionId: string
+            /** ignored */ opportunityId: string
+            /** ignored */ creditLineId: string
+            calculatedAt: string // Data ultimo calcolo confermato
+            status: string // Status ultimo calcolo confermato
+            // Dati ultimo calcolo
+            gracePeriod?: number
+            incomingAccrualDays?: number | null
+            withdrawAccrualDays?: number | null
+            cofPercentage?: number
+            /** ignored */ corPercentage?: number
+            industrialCostPercentage?: number
+            capitalCostPercentage?: number
+            commissionPercentage?: number
+            managementFeePercentage?: number | null
+            interestPercentage?: number | null
+            /** ignored */ euriborPercentage?: number | null
+            targetPricePercentage?: number | null
+            purchaseReceivableAmount?: number | null
+            commissionAmount?: number | null
+            incomeInterestAmount?: number | null
+            interestAmount?: number | null
+            hasCofaceBill?: boolean
+            /** ignored */ foreingDebtorCount?: number
+            /** ignored */ notForeingDebtorCount?: number
+            debtorCount?: number
+            debtorRecoverCostUnitPrice?: number
+            /** ignored */ debtorRecoverCost?: number
+            debtorAssessmentCostUnitPrice?: number
+            /** ignored */ debtorAssessmentCost?: number
+            saleCostWithoutRecoursePercentage?: number | null
+            saleCostWithoutRecourseAmount?: number | null
+            saleCostWithRecoursePercentage?: number | null
+            saleCostWithRecourseAmount?: number | null
+            saleCost?: number
+            cofaceCostPercentage?: number | null
+            cofaceCost?: number
+            /** ignored */ totalCost?: number
+            bankFee?: number
+            grossRevenueAmount?: number | null
+            grossAnnualFinancialReturn?: number
+            isGrossAnnualFinancialReturnValid?: boolean
+            // Risultato ultimo calcolo
+            incomeAmount?: number // Valore incasso netto (pre CoR/CoF)
+            incomePercentage?: number // Rendimento Finanziario Annuo Netto (pre CoR/CoF)
+            corCofNetIncomeAmount?: number // Valore incasso netto finale (netto CoR/CoF)
+            corCofNetIncomePercentage?: number // Rendimento Netto finale (netto CoR/CoF)
+            industrialNetIncomeAmount?: number // Valore incasso netto finale (netto costo industriale)
+            industrialNetIncomePercentage?: number // Rendimento Netto finale (netto costo industriale)
+            netIncomeAmount?: number // Valore incasso netto finale (netto req. capitale)
+            netIncomePercentage?: number // Rendimento Netto finale (netto costo industriale)
+            /** ignored */ sendErrors?: {
+                message: string
+            }[] | null
+        } | null
+    }[]
+}
