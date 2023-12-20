@@ -14,9 +14,9 @@
         <h1 class="title">DSO dichiarato</h1>
         <p>{{ this.user_old.creditLines[0].estimatedDso }}</p>
       </div>
-      <div>
+      <div >
         <h1 class="title">Grace period</h1>
-        <q-input class="input-number" rounded outlined v-model="gracePeriod" type="number" dense="dense" />
+        <q-input  rounded outlined v-model="gracePeriod" type="number"  />
       </div>
       <div>
         <h1 class="title">DSO totale</h1>
@@ -92,7 +92,6 @@ export default {
     },
     sumTotalDso() {
       return (
-        
         parseInt(this.gracePeriod) +
         parseInt(this.user_old.creditLines[0].estimatedDso)
       );

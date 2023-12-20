@@ -1,20 +1,19 @@
 <template>
   <div class="container-table-calc">
-    <q-card-section class="credit-line">
-      <div>
+    <q-card-section class="input-commission-table">
+      <div class="title-commission">
         <h1 class="title">Commissione</h1>
-        <q-input rounded outlined v-model="gracePeriod" type="number" />
+        <q-input rounded outlined v-model="creditLine.commissionPercentage" type="number" suffix="%" />
       </div>
       <div>
         <h1 class="title">Commissione di gestione</h1>
-        <q-input rounded outlined v-model="gracePeriod" type="number" />
+        <q-input rounded outlined v-model="creditLine.managementFeePercentage" type="number" suffix="%"/>
       </div>
     </q-card-section>
-    <ul >
+    <ul>
       <li class="values values-list">
         <label>Percentuale prezzo target</label>
         <span>{{ creditLine.targetPricePercentage }}%</span>
-      
       </li>
       <li class="values values-list">
         <label>Valore di acquisto</label>
@@ -22,28 +21,30 @@
       </li>
       <li class="values values-list">
         <label>Recupero spese valutazione debitore</label>
-        <q-input rounded outlined v-model="gracePeriod" type="number" />
+        <q-input rounded outlined v-model="creditLine.debtorAssessmentCost" type="number" suffix="€" />
         <span>€</span>
       </li>
       <li class="values values-list">
         <label><strong>Totale competenze</strong></label>
-        <span>{{ creditLine.bankFee }}€</span>
+        <span class="title-black">{{ creditLine.bankFee }}€</span>
       </li>
       <li class="values values-list">
         <label><strong>Rendimento finanziario annuo lordo</strong></label>
-        <span>{{ creditLine.grossAnnualFinancialReturn }}%</span>
+        <span class="title-red"
+          >{{ creditLine.grossAnnualFinancialReturn }}%</span
+        >
       </li>
     </ul>
-    <div class="q-pa-md">
-      <div>
-        <label>Pratica diretta</label>
-        <q-toggle v-model="valueDisabled" color="green" disable size="xl" />
+    <q-card-section class="btn-switch">
+      <div class="toggle-practice-direct">
+        <h1 class="title">Pratica diretta</h1>
+        <q-toggle v-model="valueDisabled" color="green" disable />
       </div>
-      <div>
-        <label>Polizza coface</label>
-        <q-toggle v-model="value" color="green" size="xl" />
+      <div class="toogle-policy-coface">
+        <h1 class="title">Polizza coface</h1>
+        <q-toggle v-model="value" color="green" keep-color />
       </div>
-    </div>
+    </q-card-section>
 
     <ul>
       <li class="values values-list">
@@ -52,8 +53,8 @@
       </li>
       <li class="values values-list">
         <label>Costo valutazione debitore</label>
-        <q-input rounded outlined v-model="gracePeriod" type="number" />
-        <span>{{ creditLine.debtorAssessmentCost }}</span>
+        <q-input rounded outlined type="number" suffix="€" />
+        <span>{{ creditLine.debtorAssessmentCost }} €</span>
       </li>
 
       <li class="values values-list">
@@ -62,7 +63,7 @@
       </li>
       <li class="values values-list">
         <label>Costo assicurazione coface</label>
-        <q-input rounded outlined v-model="gracePeriod" type="number" />
+        <q-input rounded outlined type="number" suffix="%" />
         <span>{{ creditLine.cofaceCost }}€</span>
       </li>
       <li class="values values-list">
@@ -72,7 +73,11 @@
     </ul>
     <div class="footer-table-calc">
       <div class="q-pa-md q-gutter-sm">
-        <q-btn class="btn-restore" icon="fa-solid fa-rotate-left" label="Ripristina" />
+        <q-btn
+          class="btn-restore"
+          icon="fa-solid fa-rotate-left"
+          label="Ripristina"
+        />
         <q-btn class="btn-disable" disable label="Calcola" />
       </div>
     </div>
@@ -87,6 +92,8 @@ export default {
     return {
       value: ref(true),
       valueDisabled: true,
+      commissionPercentage: Number,
+      managementFeePercentage: Number
     };
   },
   computed: {

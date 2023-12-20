@@ -1,8 +1,6 @@
 <template>
   <div class="q-pa-md" style="max-width: 1200px">
-
-
-      <q-list bordered class="rounded-borders">
+    <q-list bordered class="rounded-borders">
       <q-expansion-item
         expand-separator
         label="LINEA DI CREDITO - PRO SOLUTO PARZIALE - PRIVATO"
@@ -27,7 +25,7 @@
             </div>
             <div>
               <h1 class="title">Importo</h1>
-              {{ creditLines[0].amountSum }}
+              {{ creditLines[0].amountSum }}€
             </div>
             <div>
               <h1 class="title">Crediti acquistabili</h1>
@@ -40,34 +38,34 @@
         </q-card>
       </q-expansion-item>
     </q-list>
-    
-    
   </div>
 </template>
 
 <script>
 import AccordionList from "./AccordionList.vue";
 import TableCalc from "./TableCalc.vue";
-import TableCalc2 from './TableCalc2.vue';
-
+import TableCalc2 from "./TableCalc2.vue";
 
 export default {
   components: {
     AccordionList,
     TableCalc,
-    TableCalc2
-
+    TableCalc2,
   },
   computed: {
     creditLines() {
       return this.$store.getters.getCreditLines;
     },
   },
+  sumTotalDso() {
+      return (
+        parseInt(this.gracePeriod) +
+        parseInt(this.user_old.creditLines[0].estimatedDso)
+      );
+    },
 };
 </script>
 
 <style lang="scss">
 @import "../../../styles/accordion.scss";
 </style>
-
-
