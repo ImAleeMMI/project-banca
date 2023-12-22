@@ -6,9 +6,8 @@
     :assignorName="user_old.assignorName"
     :assignorFiscalCode="user_old.assignorFiscalCode"
   >
-    <template v-slot:main-content>
-      <accordion-id>
-        
+    <template v-slot:main-content >
+      <accordion-id  v-for="creditLine in creditLines " :key="creditLine" :creditLine="creditLine">
       </accordion-id>
     </template>
   </the-main>
@@ -16,13 +15,13 @@
 </template>
 
 <script>
+import store from "../../store/index.js"
+
 import TheFooter from "../components/layout/TheFooter.vue";
 import TheMain from "../components/ui/TheMain.vue";
 import TheHeader from "../components/layout/TheHeader.vue";
 import AccordionId from "../components/accordion/AccordionId.vue";
 
-
-// import { computed } from 'vue';
 
 export default {
   name: "HomePage",
@@ -38,31 +37,22 @@ export default {
     user_old() {
       return this.$store.state.user;
     },
+    creditLines() {
+      return this.$store.getters.getCreditLines;
+    },
   },
   methods: {
     callApi() {
       this.$store.dispatch("callApi");
     },
+    updateCreditLine(updatedCreditLine) {
+      store.commit("updateCreditLine", updatedCreditLine);
+    }
   },
   created() {
     this.callApi();
   },
-  // provide() {
-  //   return{
-  //     creditLineId: computed(() => {
-  //       if(this.$store.state.user){
-  //         return this.$store.state.user.creditLines[0].id
-  //       } else {
-  //         return 'attaccati'
-  //       }
-
-  //       }),
-  //     // creditLineType: this.user?.creditLines[0].type,
-  //     // creditLineDebtorType: this.user?.creditLines[0].debtorType,
-  //     // creditLineAmountSum: this.user?.reditLines[0].amountSum,
-  //     // creditLinePartialWithoutRecoursePercentage: this.user?.creditLines[0],
-  //   }
-  // },
+  
 };
 </script>
 

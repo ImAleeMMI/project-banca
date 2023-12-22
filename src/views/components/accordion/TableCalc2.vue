@@ -3,11 +3,25 @@
     <q-card-section class="input-commission-table">
       <div class="title-commission">
         <h1 class="title">Commissione</h1>
-        <q-input rounded outlined v-model="creditLine.commissionPercentage" type="number" suffix="%" />
+        <q-input
+          class="my-input"
+          rounded
+          outlined
+          v-model="creditLine.commissionPercentage"
+          type="number"
+          suffix="%"
+        />
       </div>
       <div>
         <h1 class="title">Commissione di gestione</h1>
-        <q-input rounded outlined v-model="creditLine.managementFeePercentage" type="number" suffix="%"/>
+        <q-input
+          class="my-input"
+          rounded
+          outlined
+          v-model="creditLine.managementFeePercentage"
+          type="number"
+          suffix="%"
+        />
       </div>
     </q-card-section>
     <ul>
@@ -21,7 +35,14 @@
       </li>
       <li class="values values-list">
         <label>Recupero spese valutazione debitore</label>
-        <q-input rounded outlined v-model="creditLine.debtorAssessmentCost" type="number" suffix="€" />
+        <q-input
+          class="my-input-small"
+          rounded
+          outlined
+          v-model="creditLine.debtorAssessmentCost"
+          type="number"
+          suffix="€"
+        />
         <span>€</span>
       </li>
       <li class="values values-list">
@@ -35,16 +56,22 @@
         >
       </li>
     </ul>
-    <q-card-section class="btn-switch">
-      <div class="toggle-practice-direct">
+
+    <div class="my-toggle">
+      <div class="toggle">
         <h1 class="title">Pratica diretta</h1>
-        <q-toggle v-model="valueDisabled" color="green" disable />
+        <span>No</span>
+        <q-toggle v-model="valueDisabled" disable color="green" />
+        <span>Si</span>
       </div>
-      <div class="toogle-policy-coface">
+
+      <div class="toggle">
         <h1 class="title">Polizza coface</h1>
-        <q-toggle v-model="value" color="green" keep-color />
+        <span>No</span>
+        <q-toggle v-model="value" color="green" />
+        <span>Si</span>
       </div>
-    </q-card-section>
+    </div>
 
     <ul>
       <li class="values values-list">
@@ -53,7 +80,7 @@
       </li>
       <li class="values values-list">
         <label>Costo valutazione debitore</label>
-        <q-input rounded outlined type="number" suffix="€" />
+        <q-input class="my-input-small" rounded outlined type="number" suffix="€" />
         <span>{{ creditLine.debtorAssessmentCost }} €</span>
       </li>
 
@@ -63,7 +90,7 @@
       </li>
       <li class="values values-list">
         <label>Costo assicurazione coface</label>
-        <q-input rounded outlined type="number" suffix="%" />
+        <q-input class="my-input-small" rounded outlined type="number" suffix="%" />
         <span>{{ creditLine.cofaceCost }}€</span>
       </li>
       <li class="values values-list">
@@ -93,7 +120,7 @@ export default {
       value: ref(true),
       valueDisabled: true,
       commissionPercentage: Number,
-      managementFeePercentage: Number
+      managementFeePercentage: Number,
     };
   },
   computed: {
