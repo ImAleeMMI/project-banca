@@ -60,7 +60,7 @@
     <div class="my-toggle">
       <div class="toggle">
         <h1 class="title">Pratica diretta</h1>
-        <span>No</span>
+        <span class="title">No</span>
         <q-toggle v-model="valueDisabled" disable color="green" />
         <span>Si</span>
       </div>
