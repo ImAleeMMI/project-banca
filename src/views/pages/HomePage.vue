@@ -6,8 +6,8 @@
     :assignorName="user_old.assignorName"
     :assignorFiscalCode="user_old.assignorFiscalCode"
   >
-    <template v-slot:main-content >
-      <accordion-id  v-for="creditLine in creditLines " :key="creditLine" :creditLine="creditLine">
+    <template v-slot:main-content>
+      <accordion-id v-for="creditLine in creditLines" :key="creditLine.id" :creditLine="creditLine">
       </accordion-id>
     </template>
   </the-main>
@@ -15,13 +15,12 @@
 </template>
 
 <script>
-import store from "../../store/index.js"
+import store from "../../store/index.js";
 
 import TheFooter from "../components/layout/TheFooter.vue";
 import TheMain from "../components/ui/TheMain.vue";
 import TheHeader from "../components/layout/TheHeader.vue";
 import AccordionId from "../components/accordion/AccordionId.vue";
-
 
 export default {
   name: "HomePage",
@@ -31,7 +30,6 @@ export default {
     TheMain,
     TheHeader,
     AccordionId,
-    
   },
   computed: {
     user_old() {
@@ -47,12 +45,11 @@ export default {
     },
     updateCreditLine(updatedCreditLine) {
       store.commit("updateCreditLine", updatedCreditLine);
-    }
+    },
   },
   created() {
     this.callApi();
   },
-  
 };
 </script>
 

@@ -1,46 +1,54 @@
 <template>
   <div>
+    <q-expansion-item
+      expand-separator
+      label="ELENCO CEDUTI"
+      class="title-list-transfers"
+      dense-toggle
+    >
+      <q-card no-border>
+        <q-card-section class="credit-lines">
+          <q-table
+            :rows="rows"
+            :columns="columns"
+            row-key="name"
+            :pagination="initialPagination"
+            :rows-per-page-options="[10,20,30,40,50,0]"
+            rows-per-page-label="Mostra"
+            color=$blue-13
+          >
+            <template v-slot:pagination="scope">
+              
+                <div>
+                  <span class="result">{{ this.rows.length }}</span>
+                </div>
+                <span> Risultati. </span>
+                <span>risultati per pagina</span>
+                
 
-      <q-expansion-item
-        expand-separator
-        label="ELENCO CEDUTI"
-        class="title-list-transfers"
-        dense-toggle
-      >
-        <q-card>
-          <q-card-section class="credit-lines">
-            <q-table
-              :rows="rows"
-              :columns="columns"
-              row-key="name"
-              :pagination="initialPagination"
-              class="table-debtors"
-            >
-              <template v-slot:pagination="scope">
-                {{ this.rows.length }} Risultati. Mostra
-                <q-btn
-                  :disable="scope.isFirstPage"
-                  @click="scope.firstPage"
-                  icon="fa-solid fa-caret-left"
-                  flat
-                  style="color: #c9cccd"
-                >
-                </q-btn>
-                Pagina {{ scope.pagination.page }} di
-                {{ scope.pagesNumber }}
+              <q-btn
+                :disable="scope.isFirstPage"
+                @click="scope.firstPage"
+                icon="fa-solid fa-caret-left"
+                flat
+                style="color: #c9cccd"
+              >
+              </q-btn>
+              Pagina {{ scope.pagination.page }} di
+              {{ scope.pagesNumber }}
 
-                <q-btn
-                  :disable="scope.isLastPage"
-                  @click="scope.lastPage"
-                  icon="fa-solid fa-caret-right"
-                  flat
-                  style="color: #c9cccd"
-                ></q-btn>
-              </template>
-            </q-table>
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
+              <q-btn
+                :disable="scope.isLastPage"
+                @click="scope.lastPage"
+                icon="fa-solid fa-caret-right"
+                flat
+                style="color: #c9cccd"
+              ></q-btn>
+            </template>
+          </q-table>
+        </q-card-section>
+      </q-card>
+    </q-expansion-item>
   </div>
 </template>
 

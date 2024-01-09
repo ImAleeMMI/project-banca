@@ -1,16 +1,15 @@
 body {
   background: #f4f4f4;
+  font-family: 'Montserrat', sans-serif;
 }
 
 main {
-  font-family: 'Montserrat,Helvetica,Sans-serif';
   position: relative;
   display: block;
   margin: auto;
   max-width: 1200px;
   padding: 1.5rem 1.5rem 5rem;
   flex-direction: column;
-  
 }
 .banca-project-hero-info label {
   font-size: 18px;
@@ -31,7 +30,7 @@ main {
   border-bottom-width: 3px;
   border-bottom-style: solid;
   border-color: #e8e8e8;
-  padding-top: 2.5rem 
+  padding-top: 2.5rem;
 }
 
 .title {
@@ -42,6 +41,7 @@ main {
 
 .badge-id {
   margin-left: 1rem;
+  font-size: 18px;
   font-weight: 500;
   color: #fff;
   background-color: rgb(90 110 117);
@@ -63,10 +63,7 @@ main {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
   div {
-    margin-right: 2rem;
-  }
-  button {
-    margin-left: 4.9rem;
+    margin-right: 1.7rem;
   }
 }
 
@@ -85,8 +82,32 @@ main {
   padding-bottom: 2rem;
 }
 
-ul{
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
+.title-1 {
+  font-size: 35px;
+  line-height: 42.67px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: black;
+}
+
+.label-title-id {
+  font-weight: 400;
+  line-height: 21.94px;
+  color: #333537;
+}
+
+.sub-title-1 {
+  font-weight:500;
+}
+
+.result{
+  color: #5D768C;
+  padding-right: 3px;
+}
+

@@ -41,7 +41,8 @@ const store = createStore({
           "https://dev-api-pricing.bancaprogetto.it/pricing-last-step/",
           pricingData
         );
-        context.commit("updateCreditLine", postResponse.data);
+        // context.commit("updateCreditLine", postResponse.data);
+        console.log(postResponse.data)
       } catch (error) {
         console.error("Errore ", error);
       }

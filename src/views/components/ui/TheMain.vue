@@ -3,9 +3,9 @@
     <div class="container">
       <div class="banca-project">
         <div class="banca-project-hero-info">
-          <h1 class="title">Calcolo pricing factoring</h1>
+          <h1 class="title-1">Calcolo pricing factoring</h1>
           <div>
-            <label>ID opportunità</label>
+            <label class="label-title-id">ID opportunità</label>
             <span class="badge-id">{{ opportunityId }}</span>
           </div>
         </div>
@@ -13,16 +13,16 @@
           <div>
             <div class="info-data">
               <div>
-                <label>Ragione Sociale: </label>
-                <label>{{ assignorName }} </label>
+                <label >Ragione Sociale: </label>
+                <label class="sub-title-1">{{ assignorName }} </label>
               </div>
               <div>
                 <label>Codice Fiscale: </label>
-                <label>{{ assignorFiscalCode }} </label>
+                <label class="sub-title-1">{{ assignorFiscalCode }} </label>
               </div>
               <div>
                 <label>Partita Iva: </label>
-                <label>{{ assignorVatCode }} </label>
+                <label class="sub-title-1">{{ assignorVatCode }} </label>
               </div>
               <button class="badge-tool">Apri tool di calcolo DSO</button>
             </div>
